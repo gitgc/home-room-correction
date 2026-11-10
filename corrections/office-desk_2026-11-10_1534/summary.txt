@@ -1,0 +1,73 @@
+roomeq correction - office-desk
+measured 2026-11-10T15:34, 5 position(s), mic 7062585_90deg.txt
+target: default: bass shelf +4.0 dB @ 105 Hz, tilt -0.80 dB/oct above 200 Hz
+
+Speaker distance: left speaker is 7.4 cm further away (0.22 ms); clock drift 12 ppm.
+
+== LEFT ==
+  output gain: -3.7 dB   (level trim +0.0 dB, includes headroom for boosts)
+  output delay: 0.00 ms
+  corrected range: 59 Hz - 15874 Hz
+  note: speaker low-frequency limit detected at 59 Hz (no boost below)
+  note: speaker high-frequency roll-off at 20000 Hz - correcting up to 15874 Hz
+  RMS deviation from target: 3.0 dB -> 1.4 dB (bass 4.2 -> 2.1, above 300 Hz 1.8 -> 0.7)
+   #  Type      Fc (Hz)   Gain (dB)     Q
+   1  PK          60.8       -5.5    6.17
+   2  PK          82.4       -3.5    8.94
+   3  PK         112.3       +4.0    1.14
+   4  PK         147.7       -8.0   10.00
+   5  PK         193.4       -6.5    8.56
+   6  PK         261.4       -2.7    8.09
+   7  PK         380.8       +1.3    3.29
+   8  PK        1054.0       -3.3    3.03
+   9  PK        3531.0       -4.7    2.35
+  10  HSC       7539.0       -4.9    0.88
+
+== RIGHT ==
+  output gain: -4.0 dB   (level trim -0.3 dB, includes headroom for boosts)
+  output delay: 0.22 ms
+  corrected range: 39 Hz - 15874 Hz
+  note: speaker low-frequency limit detected at 39 Hz (no boost below)
+  note: speaker high-frequency roll-off at 20000 Hz - correcting up to 15874 Hz
+  RMS deviation from target: 3.5 dB -> 1.9 dB (bass 4.7 -> 2.6, above 300 Hz 1.9 -> 0.7)
+   #  Type      Fc (Hz)   Gain (dB)     Q
+   1  PK          50.1       +2.8    2.38
+   2  PK          78.5       +3.4    1.60
+   3  PK         177.0       -5.3    2.60
+   4  PK         264.8       -5.2    6.74
+   5  PK         361.0       -2.6    8.60
+   6  PK         550.6       -1.7    8.17
+   7  PK         634.0       +4.0    0.40
+   8  PK        1031.0       -5.9    1.59
+   9  PK        3391.0       -3.2    3.01
+  10  PK       12854.0       -5.8    0.98
+
+== STEREO (same EQ both channels - SoundSource) ==
+  preamp: -4.0 dB
+  corrected range: 39 Hz - 15874 Hz
+  note: speaker low-frequency limit detected at 39 Hz (no boost below)
+  note: speaker high-frequency roll-off at 20000 Hz - correcting up to 15874 Hz
+  RMS deviation from target: 2.7 dB -> 1.0 dB (bass 3.3 -> 1.4, above 300 Hz 1.8 -> 0.6)
+   #  Type      Fc (Hz)   Gain (dB)     Q
+   1  PK          48.0       +3.6    2.94
+   2  PK          60.7       -3.8   10.00
+   3  PK         106.9       +3.1    1.16
+   4  PK         147.9       -6.0   10.00
+   5  PK         189.1       -5.4    4.78
+   6  PK         262.9       -4.3    8.05
+   7  PK         958.5       +2.8    0.40
+   8  PK        1076.0       -5.6    1.39
+   9  PK        3394.0       -4.3    2.51
+  10  PK       12591.0       -6.1    0.86
+
+Before/after chart: report.png (grey bands = outside the corrected range).
+
+How to use:
+  Equalizer APO : copy EqualizerAPO.txt into C:\Program Files\EqualizerAPO\config\
+                  and add the line  Include: EqualizerAPO.txt  to config.txt
+  SoundSource   : import Combined_ParametricEQ.txt (AutoEq format) as a custom
+                  parametric/headphone EQ preset on the output device
+  miniDSP 2x4 HD: Output 1 (L) / Output 2 (R) -> PEQ -> Advanced -> Import the
+                  miniDSP_*_biquads.txt file (96 kHz coefficients). Set the INPUT gain
+                  to -3.7 dB (headroom for boosts) and each OUTPUT's gain to its
+                  level trim and delay to the values above.
